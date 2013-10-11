@@ -11,10 +11,10 @@ package bzragent.model;
 public class Flag {
   private String color;
   private String posColor;
-  private int x;
-  private int y;
+  private float x;
+  private float y;
   
-  public Flag(String color, String posColor, int x, int y) {
+  public Flag(String color, String posColor, float x, float y) {
     this.color = color;
     this.posColor = posColor;
     this.x = x;
@@ -23,7 +23,7 @@ public class Flag {
   
   public static Flag parse(String response) {
     String[] parts = response.split(" ");
-    return new Flag(parts[1], parts[2], Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
+    return new Flag(parts[1], parts[2], Float.parseFloat(parts[3]), Float.parseFloat(parts[4]));
   }
   
   public String getColor() {
@@ -34,11 +34,11 @@ public class Flag {
     return posColor;
   }
   
-  public int getX() {
+  public float getX() {
     return x;
   }
   
-  public int getY() {
+  public float getY() {
     return y;
   }
 }

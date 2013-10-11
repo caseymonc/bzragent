@@ -4,6 +4,8 @@
  */
 package bzragent.model;
 
+import javax.swing.Timer;
+
 /**
  *
  * @author caseymoncur
@@ -148,53 +150,57 @@ public class Tank {
   
   public static Tank parse(String response) {
     response = response.substring(response.indexOf(" ") + 1);
-    String toParse = response.substring(0, response.indexOf(" "));
+    String toParse = response.substring(0, response.indexOf(" ")).trim();
     int index = Integer.parseInt(toParse);
     
-    response = response.substring(response.indexOf(" ") + 1);
+    response = response.substring(response.indexOf(" ") + 1).trim();
     toParse = response.substring(0, response.indexOf(" "));
     String callsign = toParse;
     
-    response = response.substring(response.indexOf(" ") + 1);
+    response = response.substring(response.indexOf(" ") + 1).trim();
     toParse = response.substring(0, response.indexOf(" "));
     String status = toParse;
     
-    response = response.substring(response.indexOf(" ") + 1);
+    response = response.substring(response.indexOf(" ") + 1).trim();
     toParse = response.substring(0, response.indexOf(" "));
     int shotsAvailable = Integer.parseInt(toParse);
     
-    response = response.substring(response.indexOf(" ") + 1);
+    response = response.substring(response.indexOf(" ") + 1).trim();
     toParse = response.substring(0, response.indexOf(" "));
     float timeToReload = Float.parseFloat(toParse);
     
-    response = response.substring(response.indexOf(" ") + 1);
+    response = response.substring(response.indexOf(" ") + 1).trim();
     toParse = response.substring(0, response.indexOf(" "));
     String flag = toParse;
     
-    response = response.substring(response.indexOf(" ") + 1);
+    response = response.substring(response.indexOf(" ") + 1).trim();
     toParse = response.substring(0, response.indexOf(" "));
     float x = Float.parseFloat(toParse);
     
-    response = response.substring(response.indexOf(" ") + 1);
+    response = response.substring(response.indexOf(" ") + 1).trim();
     toParse = response.substring(0, response.indexOf(" "));
     float y = Float.parseFloat(toParse);
     
-    response = response.substring(response.indexOf(" ") + 1);
+    response = response.substring(response.indexOf(" ") + 1).trim();
     toParse = response.substring(0, response.indexOf(" "));
     float angle = Float.parseFloat(toParse);
     
-    response = response.substring(response.indexOf(" ") + 1);
+    response = response.substring(response.indexOf(" ") + 1).trim();
     toParse = response.substring(0, response.indexOf(" "));
     float velocityX = Float.parseFloat(toParse);
     
-    response = response.substring(response.indexOf(" ") + 1);
+    response = response.substring(response.indexOf(" ") + 1).trim();
     toParse = response.substring(0, response.indexOf(" "));
     float velocityY = Float.parseFloat(toParse);
     
-    response = response.substring(response.indexOf(" ") + 1);
+    response = response.substring(response.indexOf(" ") + 1).trim();
     toParse = response;
     float angularVelocity = Float.parseFloat(toParse);
     return new Tank(index, callsign, status, shotsAvailable, timeToReload, flag, 
             x, y, angle, velocityX, velocityY, angularVelocity);
   }
+
+    public float getAngularNextVelocity(float angleToGoTo) {
+        return 5;
+    }
 }

@@ -41,7 +41,17 @@ public class Bzragent {
       Test();
     } else {
       try {
-        BZRSocket socket = new BZRSocket("localhost", 4056);
+        BZRSocket socket = new BZRSocket("localhost", 40129);
+        
+        Agent agent = new PotentialFieldsAgent(socket, "blue");
+        agent.start();
+        
+        BZRSocket socket2 = new BZRSocket("localhost", 36260);
+        
+        Agent agent2 = new PotentialFieldsAgent(socket2, "purple");
+        agent2.start();
+        
+        while(true);
       } catch (UnknownHostException ex) {
         Logger.getLogger(Bzragent.class.getName()).log(Level.SEVERE, null, ex);
       } catch (IOException ex) {

@@ -10,12 +10,12 @@ package bzragent.model;
  */
 public class Base {
   private String color;
-  private int x1;
-  private int y1;
-  private int x2;
-  private int y2;
+  private float x1;
+  private float y1;
+  private float x2;
+  private float y2;
   
-  public Base(String color, int x1, int y1, int x2, int y2) {
+  public Base(String color, float x1, float y1, float x2, float y2) {
     this.color = color;
     this.x1 = x1;
     this.y1 = y1;
@@ -26,25 +26,33 @@ public class Base {
   public static Base parse(String response) {
     String[] parts = response.split(" ");
     return new Base(parts[1],
-                    Integer.parseInt(parts[2]),
-                    Integer.parseInt(parts[3]),
-                    Integer.parseInt(parts[4]),
-                    Integer.parseInt(parts[5]));
+                    Float.parseFloat(parts[2]),
+                    Float.parseFloat(parts[3]),
+                    Float.parseFloat(parts[4]),
+                    Float.parseFloat(parts[5]));
   }
   
-  public int getX1() {
+  public float getX() {
+      return (x1 + x2)/2;
+  }
+  
+  public float getY() {
+      return (y1 + y2)/2;
+  }
+  
+  public float getX1() {
     return x1;
   }
   
-  public int getY1() {
+  public float getY1() {
     return y1;
   }
   
-  public int getX2() {
+  public float getX2() {
     return x2;
   }
   
-  public int getY2() {
+  public float getY2() {
     return y2;
   }
   
